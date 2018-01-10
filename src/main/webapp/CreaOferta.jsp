@@ -22,9 +22,11 @@
         <a href= "./panelprincipal.jsp">Inicio</a>
         <div class="container">
             <h1>Oferta</h1>
-            <form class="form-signin" action="./BuscaCliente" method="POST">
+            <form class="form-signin" action="./BusquedaConjunta" method="POST">
                 <label>Contacto</label>
                 <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                <label>Vehículo</label>
+                <input name="matricula" type="text" class="form-control" placeholder="Matrícula" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Buscar</button>
             </form>
@@ -57,12 +59,7 @@
                     </tbody>
                 </table>    
             </div>
-            <form class="form-signin" action="./BuscaCoche" method="POST">
-                <label>Vehículo</label>
-                <input name="matricula" type="text" class="form-control" placeholder="Matrícula" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Buscar</button>
-            </form>   
+               
             <div>
                 <table>
                     <thead>

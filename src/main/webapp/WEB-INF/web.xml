@@ -24,6 +24,10 @@
         <servlet-name>BuscaCoche</servlet-name>
         <servlet-class>com.cice.powersales.servlet.BuscaCoche</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BusquedaConjunta</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.BusquedaConjunta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>BuscaCoche</servlet-name>
         <url-pattern>/BuscaCoche</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusquedaConjunta</servlet-name>
+        <url-pattern>/BusquedaConjunta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
