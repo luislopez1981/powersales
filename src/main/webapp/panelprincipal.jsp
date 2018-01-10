@@ -1,8 +1,6 @@
 <%
-
     ResultSet rs = (ResultSet) request.getAttribute("encontrados");
-
-%>
+    %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -91,7 +89,7 @@
                 <div role="tabpanel" class="tab-pane active" id="ofertas">
 
                     <div class="span12">
-                        <a href="" class="btn btn-default btn-lg">Crear oferta</a>
+                        <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>
                     </div>
 
 
@@ -117,13 +115,15 @@
                         <a href="formContacto.jsp" class="btn btn-default btn-lg">Crear contacto</a>
                     </div>
 
-                    <h2>Búsqueda de contacto</h2>
+                    <h3>Búsqueda de contacto</h3>
                     <form id="form1">
                         Teléfono:<input type="text" id="telefono" />
                         <input type="button" id="submit" value="Buscar" /> 
-                    </form>
+<!--                    </form>-->
                     <br>
                     <div id="tabla"></div>
+                    <center><input type="button" id="submit" value="Formalizar oferta" />
+                    </form>
                 </div>
 
 

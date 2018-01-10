@@ -5,6 +5,7 @@
  */
 package com.cice.powersales.servlet;
 
+import com.cice.powersales.dto.ContactoEncontradoDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author NYL
  */
 public class BuscaContacto extends HttpServlet {
-
+ContactoEncontradoDTO encontrado = new ContactoEncontradoDTO();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -41,7 +42,6 @@ public class BuscaContacto extends HttpServlet {
 
             ResultSet rs = st.executeQuery("SELECT * FROM contactos WHERE telefono = '" + tel + "'");
 
-
             out.println("<table class=\"table\">");
             out.println("<tr>");
             out.println("<th> Nº CLIENTE </th>");
@@ -56,30 +56,24 @@ public class BuscaContacto extends HttpServlet {
             out.println("<form>");
 
             while (rs.next()) {
-                String idContacto = rs.getString("idContacto");
-                String nombre = rs.getString("nombre");
-                String apellido1 = rs.getString("apellido1");
-                String apellido2 = rs.getString("apellido2");
-                String telefono = rs.getString("telefono");
-                String cp = rs.getString("cp");
-                String email = rs.getString("email");
 
                 out.println("<tr>");
-                out.println("<td>" + idContacto + "</td>");
-                out.println("<td>" + nombre + "</td>");
-                out.println("<td>" + apellido1 + "</td>");
-                out.println("<td>" + apellido2 + "</td>");
-                out.println("<td>" + telefono + "</td>");
-                out.println("<td>" + cp + "</td>");
-                out.println("<td>" + email + "</td>");
-                out.println("<td><input type=\"checkbox\" name=\"contacto\" value=\"contacto\"></td>");
+                out.println("<td>" + rs.getString("idContacto") + "</td>");
+                out.println("<td>" + rs.getString("nombre") + "</td>");
+                out.println("<td>" + rs.getString("apellido1") + "</td>");
+                out.println("<td>" + rs.getString("apellido2") + "</td>");
+                out.println("<td>" + rs.getString("telefono") + "</td>");
+                out.println("<td>" + rs.getString("cp") + "</td>");
+                out.println("<td>" + rs.getString("email") + "</td>");                
                 out.println("</tr>");
                 out.println("</form>");
+                
+            encontrado.setIdEncontrado((rs.getString("idContacto")));
+                
 
             }
             out.println("</table>");
-            out.println("<input type=\"submit\" value=\"Seleccionar\">");
-
+            
             rs.close();
             st.close();
             connection.close();

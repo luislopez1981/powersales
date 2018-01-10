@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-
+<a href= "./panelprincipal.jsp">Inicio</a>
         <div class="container">
             <h1>Nuevo contacto</h1>
             <form class="form-signin" action="./CreaContacto" method="POST">
