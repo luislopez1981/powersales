@@ -16,14 +16,14 @@ public class OfertaDTO {
     private Integer idOferta;
     private Integer contactoId;
     private Integer vehiculoId;
-    private Double precioFinal;
+    private Integer precioFinal;
     private String comentario;
-    private Date fecha;
+    private String fecha;
 
     public OfertaDTO() {
     }
 
-    public OfertaDTO(Integer idOferta, Integer contactoId, Integer vehiculoId, Double precioFinal, String comentario, Date fecha) {
+    public OfertaDTO(Integer idOferta, Integer contactoId, Integer vehiculoId, Integer precioFinal, String comentario, String fecha) {
         this.idOferta = idOferta;
         this.contactoId = contactoId;
         this.vehiculoId = vehiculoId;
@@ -56,11 +56,11 @@ public class OfertaDTO {
         this.vehiculoId = vehiculoId;
     }
 
-    public Double getPrecioFinal() {
+    public Integer getPrecioFinal() {
         return precioFinal;
     }
 
-    public void setPrecioFinal(Double precioFinal) {
+    public void setPrecioFinal(Integer precioFinal) {
         this.precioFinal = precioFinal;
     }
 
@@ -72,11 +72,11 @@ public class OfertaDTO {
         this.comentario = comentario;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
     
