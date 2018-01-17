@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.sql.ResultSet"%>
 <%
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
@@ -6,6 +8,11 @@
     ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
     Boolean existeBusqueda2 = busqueda2 != null;
 
+    Date fecha = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String fechaFormat = sdf.format(fecha);
+
+    String idVehiculo = "", idContacto = "";
 %>
 <%@page import="com.cice.powersales.dto.ContactoEncontradoDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +25,7 @@
         <link href="./css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
         <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-        <title>JSP Page</title>
+        <title>JSP Page <%=fechaFormat%></title>
 
     </head>
     <body>        
@@ -53,6 +60,7 @@
                     <tbody>
                         <%if (existeBusqueda) {%>
                         <%while (busqueda.next()) {
+                                idContacto = busqueda.getString("idContacto");
                         %>
 
                         <tr>
@@ -86,6 +94,7 @@
                     <tbody>
                         <%if (existeBusqueda2) {%>
                         <%while (busqueda2.next()) {
+                                idVehiculo = busqueda2.getString("idVehiculo");
                         %>
 
                         <tr>
@@ -102,23 +111,16 @@
                     </tbody>
                 </table>    
             </div>
-                                                
+
             <form action="./CreaOferta" method="POST" id="creaoferta">
                 <label>Precio Final</label>
                 <input name="precioFinal" type="text" class="form-control" placeholder="Importe" required>
                 <label>Comentarios</label>
                 <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
-                <%if (existeBusqueda && existeBusqueda2) {
-                %><%while (busqueda.next() && busqueda2.next()) {
-                    
 
-                %>
-                
-                <input type="text" form="creaoferta" name="contactoId" >
-                <input type="hidden" form="creaoferta" name="vehiculoId" value="2">
-                <%}
-                    }%>
-                <input type="date" name="fecha"/>
+                <input type="hidden" form="creaoferta" name="contactoId" value="<%=idContacto%>"/>
+                <input type="hidden" form="creaoferta" name="vehiculoId" value="<%=idVehiculo%>"/>
+                <input type="date" name="fecha" value="<%=fechaFormat%>"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Crear</button>
             </form>     
