@@ -1,5 +1,10 @@
 <%
     ResultSet rs = (ResultSet) request.getAttribute("encontrados");
+
+    ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
+    Boolean existeBusqueda = busqueda != null;
+    ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
+    Boolean existeBusqueda2 = busqueda2 != null;
 %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -100,6 +105,39 @@
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                             Buscar</button>
                     </form>
+
+                    <table>
+                         <%
+                                if (existeBusqueda) {%>
+                            <%while (busqueda.next()) {%>
+                            <label><%=busqueda.getString("nombre")%></label>
+                            <label><%=busqueda.getString("apellido1")%></label>
+                            <label><%=busqueda.getString("apellido2")%></label>
+                        <thead>
+                           
+                        
+                        <tr>
+                            <th>Precio Final</th>
+                            <th>Fecha</th>
+                        </tr>
+                        <%}
+                            }%>
+                        </thead>
+                        <tbody>
+                            <%if (existeBusqueda2) {%>
+                        <%while (busqueda2.next()) {
+                               
+                        %>
+
+                        <tr>
+                            <td><%=busqueda2.getString("precioFinal")%></td>
+                            <td><%=busqueda2.getString("mfecha")%></td>
+                                                   
+                        </tr>
+                        <%}
+                            }%> 
+                        </tbody>
+                    </table>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="contactos"><a name="contactos"></a>   
