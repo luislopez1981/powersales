@@ -1,6 +1,6 @@
 <%
     ResultSet rs = (ResultSet) request.getAttribute("encontrados");
-    %>
+%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -94,18 +94,11 @@
 
 
 
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Buscar oferta</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="oferta">
-                            <button type="submit" class="btn btn-primary btn-lg active">Buscar</button>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Buscar pedido</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Pedido">
-                            <button type="submit" class="btn btn-primary btn-lg active">Buscar</button>
-                        </div>
-
+                    <form action="./BuscaOferta" method="POST" id="buscaoferta">
+                        <label>Buscar Oferta</label>
+                        <input name="buscaoferta" type="text" class="form-control" placeholder="Teléfono" required> 
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Buscar</button>
                     </form>
                 </div>
 
@@ -119,10 +112,10 @@
                     <form id="form1">
                         Teléfono:<input type="text" id="telefono" />
                         <input type="button" id="submit" value="Buscar" /> 
-<!--                    </form>-->
-                    <br>
-                    <div id="tabla"></div>
-                    <center><input type="button" id="submit" value="Formalizar oferta" />
+                        <!--                    </form>-->
+                        <br>
+                        <div id="tabla"></div>
+                        <center><input type="button" id="submit" value="Formalizar oferta" />
                     </form>
                 </div>
 

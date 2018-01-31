@@ -27,10 +27,10 @@ public class CreaOferta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-          //Integer contactoId = Integer.valueOf(req.getParameter("contactoId"));
-        Integer contactoId = 1;
-        //Integer vehiculoId = Integer.valueOf(req.getParameter("vehiculoId"));
-        Integer vehiculoId = 2;
+        Integer contactoId = Integer.valueOf(req.getParameter("contactoId"));
+
+        Integer vehiculoId = Integer.valueOf(req.getParameter("vehiculoId"));
+
         Integer precioFinal = Integer.parseInt(req.getParameter("precioFinal"));
 
         String comentario = req.getParameter("comentario");
