@@ -5,6 +5,8 @@
     Boolean existeBusqueda = busqueda != null;
     ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
     Boolean existeBusqueda2 = busqueda2 != null;
+    String contactoId = "";
+    
 %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -107,35 +109,37 @@
                     </form>
 
                     <table>
-                         <%
-                                if (existeBusqueda) {%>
-                            <%while (busqueda.next()) {%>
-                            <label><%=busqueda.getString("nombre")%></label>
-                            <label><%=busqueda.getString("apellido1")%></label>
-                            <label><%=busqueda.getString("apellido2")%></label>
-                        <thead>
-                           
-                        
-                        <tr>
-                            <th>Precio Final</th>
-                            <th>Fecha</th>
-                        </tr>
-                        <%}
+                        <%
+                            if (existeBusqueda) {%>
+                        <%while (busqueda.next()) {%>
+                        <label><%=busqueda.getString("nombre")%></label>
+                        <label><%=busqueda.getString("apellido1")%></label>
+                        <label><%=busqueda.getString("apellido2")%></label>
+                        <%contactoId = busqueda.getString("idContacto");
+                           }
                             }%>
+                        <thead>
+                            <tr>
+                                <th>Precio Final</th>
+                                <th>Fecha</th>
+                            </tr>
+                            <jsp:include page="./BuscaOferta2">
+                                <jsp:param name="contacto" value="contactoId"/> 
+                            </jsp:include>
                         </thead>
                         <tbody>
                             <%if (existeBusqueda2) {%>
-                        <%while (busqueda2.next()) {
-                               
-                        %>
+                            <%while (busqueda2.next()) {
 
-                        <tr>
-                            <td><%=busqueda2.getString("precioFinal")%></td>
-                            <td><%=busqueda2.getString("mfecha")%></td>
-                                                   
-                        </tr>
-                        <%}
-                            }%> 
+                            %>
+
+                            <tr>
+                                <td><%=busqueda2.getString("precioFinal")%></td>
+                                <td><%=busqueda2.getString("fecha")%></td>
+
+                            </tr>
+                            <%}
+                                }%> 
                         </tbody>
                     </table>
                 </div>
