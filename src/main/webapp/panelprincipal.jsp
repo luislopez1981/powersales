@@ -6,7 +6,7 @@
     ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
     Boolean existeBusqueda2 = busqueda2 != null;
     String contactoId = "";
-    
+
 %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -109,30 +109,32 @@
                     </form>
 
                     <table>
-                        <%
-                            if (existeBusqueda) {%>
+                        <%                            if (existeBusqueda) {%>
                         <%while (busqueda.next()) {%>
-                        <label><%=busqueda.getString("nombre")%></label>
-                        <label><%=busqueda.getString("apellido1")%></label>
-                        <label><%=busqueda.getString("apellido2")%></label>
-                        <%contactoId = busqueda.getString("idContacto");
-                           }
+                        <%contactoId = busqueda.getString("idContacto");%>
+                        <h4>¿Desea buscar ofertas de <%=busqueda.getString("nombre")%> <%=busqueda.getString("apellido1")%> <%=busqueda.getString("apellido2")%> ?</h4>
+                        <h4><%=contactoId%></h4>
+                        <form action="./BuscaOferta2" method="POST" id="buscaoferta2">
+                                <input type="hidden" form="buscaoferta2" name="contactoId" value="<%=contactoId%>"/>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Si</button>
+                            </form>
+                        <%
+                                }
                             }%>
+                            
+                        <%if (existeBusqueda2) {%>                            
+                        <%while (busqueda2.next()) {
+
+                        %>
                         <thead>
                             <tr>
                                 <th>Precio Final</th>
                                 <th>Fecha</th>
                             </tr>
-                            <jsp:include page="./BuscaOferta2">
-                                <jsp:param name="contacto" value="contactoId"/> 
-                            </jsp:include>
+
                         </thead>
                         <tbody>
-                            <%if (existeBusqueda2) {%>
-                            <%while (busqueda2.next()) {
-
-                            %>
-
                             <tr>
                                 <td><%=busqueda2.getString("precioFinal")%></td>
                                 <td><%=busqueda2.getString("fecha")%></td>
@@ -157,7 +159,7 @@
                         <!--                    </form>-->
                         <br>
                         <div id="tabla"></div>
-                        <center><input type="button" id="submit" value="Formalizar oferta" />
+<!--                        <center><input type="button" id="submit" value="Formalizar oferta" />-->
                     </form>
                 </div>
 

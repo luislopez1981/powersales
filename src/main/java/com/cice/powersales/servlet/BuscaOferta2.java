@@ -27,11 +27,11 @@ import javax.servlet.http.HttpServletResponse;
 public class BuscaOferta2 extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+     
+        Integer contactoId = Integer.valueOf(req.getParameter("contactoId"));
         
-        //Integer contactoId = Integer.parseInt(req.getParameter("contacto"));
-        
-        Integer contactoId = 5;
+        //Integer contactoId = 3;
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -55,8 +55,7 @@ public class BuscaOferta2 extends HttpServlet {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     }
 
    
