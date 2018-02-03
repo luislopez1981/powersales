@@ -5,7 +5,10 @@
     Boolean existeBusqueda = busqueda != null;
     ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
     Boolean existeBusqueda2 = busqueda2 != null;
-    String contactoId = "";
+    
+    ResultSet busqueda3 = (ResultSet) request.getAttribute("busqueda3");
+    Boolean existeBusqueda3 = busqueda3 != null;
+    String contactoId = "", nombre = "", apellido1 = "", apellido2 = "";
 
 %>
 <%@page import="java.util.Iterator"%>
@@ -93,6 +96,9 @@
 
             <!-- Tab panes -->
             <div class="tab-content" id="myTabContent">
+
+
+
                 <div role="tabpanel" class="tab-pane active" id="ofertas">
 
                     <div class="span12">
@@ -112,39 +118,61 @@
                         <%                            if (existeBusqueda) {%>
                         <%while (busqueda.next()) {%>
                         <%contactoId = busqueda.getString("idContacto");%>
-                        <h4>¿Desea buscar ofertas de <%=busqueda.getString("nombre")%> <%=busqueda.getString("apellido1")%> <%=busqueda.getString("apellido2")%> ?</h4>
-                        <h4><%=contactoId%></h4>
+                        <%nombre = busqueda.getString("nombre");%>
+                        <%apellido1 = busqueda.getString("apellido1");%>
+                        <%apellido2 = busqueda.getString("apellido2");%>
+
+
+                        <h4>¿Desea buscar ofertas de <%=nombre%> <%=apellido1%> <%=apellido2%> ?</h4>
                         <form action="./BuscaOferta2" method="POST" id="buscaoferta2">
-                                <input type="hidden" form="buscaoferta2" name="contactoId" value="<%=contactoId%>"/>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Si</button>
-                            </form>
-                        <%
-                                }
+                            <input type="hidden" form="buscaoferta2" name="contactoId" value="<%=contactoId%>"/>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Si</button>
+                        </form>
+                                
+                            <% }
                             }%>
                             
-                        <%if (existeBusqueda2) {%>                            
-                        <%while (busqueda2.next()) {
-
-                        %>
+                            <%if (existeBusqueda2) {%>  
+                            
+                              <h4>Ofertas encontradas </h4>   
+                            
+                           
+                            
                         <thead>
+
                             <tr>
                                 <th>Precio Final</th>
                                 <th>Fecha</th>
+                                <th>Modelo</th>
                             </tr>
 
                         </thead>
+                        <%while (busqueda2.next()) {
+
+                        %>
+
                         <tbody>
                             <tr>
                                 <td><%=busqueda2.getString("precioFinal")%></td>
                                 <td><%=busqueda2.getString("fecha")%></td>
-
+                                <%String coche = busqueda2.getString("vehiculoId");%>
+                                <jsp:forward page="./BuscaOferta3">
+                                    <jsp:param name="coche" value="<%=coche%>"/>
+                                </jsp:forward>
+                                <%if(existeBusqueda3){%>
+                                <%while (busqueda3.next()){%>
+                                <td><%=busqueda3.getString("modelo")%></td>
+                                <%}}%>
                             </tr>
                             <%}
                                 }%> 
                         </tbody>
                     </table>
                 </div>
+
+
+
 
                 <div role="tabpanel" class="tab-pane" id="contactos"><a name="contactos"></a>   
 
@@ -159,14 +187,13 @@
                         <!--                    </form>-->
                         <br>
                         <div id="tabla"></div>
-<!--                        <center><input type="button" id="submit" value="Formalizar oferta" />-->
+                        <!--                        <center><input type="button" id="submit" value="Formalizar oferta" />-->
                     </form>
                 </div>
 
 
 
                 <div role="tabpanel" class="tab-pane" id="stock">
-
                     <h2>Búsqueda de vehículo</h2>
                     <form id="form1">
                         Matrícula:<input type="text" id="matricula" />
@@ -241,6 +268,9 @@
                                             </tbody>
                                         </table>-->
                 </div>
+                        
+                        
+                        
                 <div role="tabpanel" class="tab-pane" id="ventas">4</div>
             </div>
 
