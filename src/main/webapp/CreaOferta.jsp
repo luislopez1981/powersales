@@ -60,6 +60,7 @@
                     <tbody>
                         <%if (existeBusqueda) {%>
                         <%while (busqueda.next()) {
+                            idContacto = busqueda.getString("idContacto");
                                 
                         %>
 
