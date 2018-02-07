@@ -3,11 +3,7 @@
 
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
-    ResultSet busqueda2 = (ResultSet) request.getAttribute("busqueda2");
-    Boolean existeBusqueda2 = busqueda2 != null;
 
-    ResultSet busqueda3 = (ResultSet) request.getAttribute("busqueda3");
-    Boolean existeBusqueda3 = busqueda3 != null;
     String contactoId = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";
 
 %>
@@ -121,49 +117,49 @@
                         <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>
                     </div>
                     <h2>Búsqueda de Ofertas</h2>
-                    <form id="form1">
-                        Teléfono:<input type="text" id="telefono" />
-                        <input type="button" id="submit3" value="Buscar" /> 
-                    </form>
-                    <br>
-                    <div id="tablaofertas"></div>
-
-
-                    <!--                    <form action="./BuscaOferta" method="POST" id="buscaoferta">
-                                            <label>Buscar Oferta</label>
-                                            <input name="buscaoferta" type="text" class="form-control" placeholder="Teléfono" required> 
-                                            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                                Buscar</button>
+                    <!--                    <form id="form1">
+                                            Teléfono:<input type="text" id="telefono" />
+                                            <input type="button" id="submit3" value="Buscar" /> 
                                         </form>
-                    
-                                        <table>
-                    <%                            if (existeBusqueda) {
-                    %>
-                    <h4>Ofertas encontradas</h4>
-                    <tr>
-                        <th>Nombre</th>  
-                        <th>Primer Apellido</th>  
-                        <th>Segundo Apellido</th>
-                        <th>Fecha</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Precio</th>  
+                                        <br>
+                                        <div id="tablaofertas"></div>-->
 
-                    </tr>
-                    <%while (busqueda.next()) {%>
-                    <tr>
-                        <td><%=busqueda.getString("nombre")%></td>  
-                        <td><%=busqueda.getString("apellido1")%></td>  
-                        <td><%=busqueda.getString("apellido2")%></td>
-                        <td><%=busqueda.getString("fecha")%></td>
-                        <td><%=busqueda.getString("marca")%></td>
-                        <td><%=busqueda.getString("modelo")%></td>
-                        <td><%=busqueda.getString("precioFinal")%></td>  
-                    </tr>
 
-                    <%}
-                            }%>
-                </table>-->
+                    <form action="./BuscaOferta" method="POST" id="buscaoferta">
+                        <label>Buscar Oferta</label>
+                        <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required> 
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Buscar</button>
+                    </form>
+
+                    <table>
+                        <%                            if (existeBusqueda) {
+                        %>
+                        
+                        <tr>
+                            <th>Nombre</th>  
+                            <th>Primer Apellido</th>  
+                            <th>Segundo Apellido</th>
+                            <th>Fecha</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Precio</th>  
+
+                        </tr>
+                        <%while (busqueda.next()) {%>
+                        <tr>
+                            <td><%=busqueda.getString("nombre")%></td>  
+                            <td><%=busqueda.getString("apellido1")%></td>  
+                            <td><%=busqueda.getString("apellido2")%></td>
+                            <td><%=busqueda.getString("fecha")%></td>
+                            <td><%=busqueda.getString("marca")%></td>
+                            <td><%=busqueda.getString("modelo")%></td>
+                            <td><%=busqueda.getString("precioFinal")%></td>  
+                        </tr>
+
+                        <%}
+                        }%>
+                    </table>
                 </div>
 
 
@@ -184,6 +180,7 @@
                         <div id="tabla"></div>
                         <!--                        <center><input type="button" id="submit" value="Formalizar oferta" />-->
                     </form>
+                    <button>crear oferta</button>
                 </div>
 
 
