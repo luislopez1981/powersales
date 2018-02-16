@@ -76,7 +76,7 @@ public class BuscaOferta extends HttpServlet {
 //            out.println("</form>");
 //            out.println("</table>");
             req.setAttribute("busqueda", rs);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/panelprincipal.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Oferta.jsp");
             dispatcher.forward(req, resp);
             rs.close();
             st.close();

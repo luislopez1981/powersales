@@ -29,7 +29,7 @@
 
     </head>
     <body>        
-        <a href= "./panelprincipal.jsp">Inicio</a><br>
+        <a href= "./Oferta.jsp">Inicio</a><br>
         <script>
             var f = new Date();
             document.write(f.getFullYear() + "/" + (f.getMonth() + 1) + "/" + f.getDate());
@@ -90,6 +90,7 @@
                             <th>Versión</th>                            
                             <th>Motor</th>                            
                             <th>Potencia</th>                            
+                            <th>Precio</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -106,6 +107,7 @@
                             <td><%=busqueda2.getString("version")%></td>                        
                             <td><%=busqueda2.getString("motor")%></td>                        
                             <td><%=busqueda2.getString("potencia")%></td>                        
+                            <td><%=busqueda2.getString("precio")%></td>                        
                         </tr>
                         <%}
                             }%>                    

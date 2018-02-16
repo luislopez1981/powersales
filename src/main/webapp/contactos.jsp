@@ -23,16 +23,28 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Oferta</title>
+
+        <title>contactos</title>
 
         <!-- Bootstrap -->
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script> 
+        <script>
+            $(document).ready(function () {
+                $('#submit').click(function (event) {
+                    var telefonoVar = $('#telefono').val();
 
-        
+
+                    $.post('./BuscaContacto', {
+                        telefono: telefonoVar,
+                    }, function (responseText) {
+                        $('#tabla').html(responseText);
+                    });
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -43,7 +55,6 @@
                 <p class="user">Nombre Apellidos</p>
             </div>
         </header>
-
         <main>
             <div class="menuHome">
                 <ul>
@@ -58,25 +69,21 @@
                     </li>
                 </ul>
             </div>
-
         </main>
 
         <div class="container">
-
-            <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>
-
-            <h5>Búsqueda de Ofertas</h5>
             
+            <a href="formContacto.jsp" class="btn btn-default btn-lg">Crear contacto</a>
 
-            <form action="./BuscaOferta" method="POST" id="buscaoferta">
-                <label>Buscar Oferta</label>
-                <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Buscar
-                </button>
+            <h5>Búsqueda de contacto</h5>
+            <form id="form1">
+                Teléfono:<input type="text" id="telefono" />
+                <input type="button" id="submit" value="Buscar" />
+                <br>
+                <div id="tabla"></div>             
             </form>
 
-            <table class="table">
+            <table>
                 <%                            if (existeBusqueda) {
                 %>
 
@@ -88,10 +95,9 @@
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Precio</th>
-                 </tr>
+                </tr>
                 <%while (busqueda.next()) {%>
-                <tr><form  action="./BuscaOferta2" method="POST">
-                    
+                <tr>
                     <td><%=busqueda.getString("nombre")%></td>
                     <td><%=busqueda.getString("apellido1")%></td>
                     <td><%=busqueda.getString("apellido2")%></td>
@@ -99,14 +105,11 @@
                     <td><%=busqueda.getString("marca")%></td>
                     <td><%=busqueda.getString("modelo")%></td>
                     <td><%=busqueda.getString("precioFinal")%></td>
-                    <td><input type="submit" value="Seleccionar"></td>
-                    </tr>
-                    <input type="hidden" name="idOferta" value="<%=busqueda.getString("idOferta")%>">
-                </form>
+                </tr>
+
                 <%}
                     }%>
             </table>
-
         </div>
 
 
@@ -115,44 +118,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#submit').click(function (event) {
-                    var telefonoVar = $('#telefono').val();
 
-
-                    $.post('./BuscaContacto', {
-                        telefono: telefonoVar,
-
-                    }, function (responseText) {
-                        $('#tabla').html(responseText);
-                    });
-                });
-
-                $('#submit2').click(function (event) {
-                    var matriculaVar = $('#matricula').val();
-
-
-                    $.post('./BuscaVehiculo', {
-                        matricula: matriculaVar,
-
-                    }, function (responseText) {
-                        $('#tablacoches').html(responseText);
-                    });
-                });
-
-                $('#submit3').click(function (event) {
-                    var telefonoVar = $('#telefono').val();
-
-
-                    $.post('./BuscaOferta', {
-                        telefono: telefonoVar,
-
-                    }, function (responseText) {
-                        $('#tablaofertas').html(responseText);
-                    });
-                });
-            });
-        </script>
     </body>
 </html>

@@ -56,6 +56,7 @@ public class BuscaVehiculo extends HttpServlet {
             out.println("<th> FECHA 1ª MATRICULACIÓN </th>");
             out.println("<th> KILOMETRAJE </th>");
             out.println("<th> PRECIO </th>");
+            out.println("<th>  </th>");
             out.println("</tr>");
             
             out.println("<form>");

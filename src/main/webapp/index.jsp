@@ -1,6 +1,6 @@
 <%
 
-Boolean existeError = request.getParameter("error")!= null;
+    Boolean existeError = request.getParameter("error") != null;
 
 %>
 
@@ -23,7 +23,7 @@ Boolean existeError = request.getParameter("error")!= null;
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <!--INSERTAMOS LA ALERTA-->
-                    <%if(existeError){%>
+                    <%if (existeError) {%>
                     <div class="alert alert-danger" role="alert">Usuario o Contraseña erróneos</div>
                     <%}%>
                     <!--FIN DE LA ALERTA-->
@@ -37,8 +37,6 @@ Boolean existeError = request.getParameter("error")!= null;
                                 Iniciar Sesión</button>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>

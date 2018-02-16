@@ -1,0 +1,43 @@
+body{
+	height: 100%;
+	/*background-color: #97a3d1;*/
+}
+p{
+	line-height: 16px;
+	margin: 0;
+}
+h1{
+	margin: 0;
+}
+header{
+	overflow: hidden;
+	background-color: rgba(0,0,0,.5);
+	padding: 10px 20px;
+}
+.logo{
+	line-height: 67px;
+}
+main{
+
+}
+.loginHome{
+	line-height: 67px;
+}
+.loginHome .user{
+	display: inline-block;
+}
+
+.menuHome{
+	text-align: center;
+	margin: 50px 0 0;
+}
+.menuHome ul{
+	overflow: hidden;
+	display: inline-block;
+	padding: 0;
+}
+.menuHome ul li{
+	display: block;
+	float: left;
+	margin: 0 10px;
+}

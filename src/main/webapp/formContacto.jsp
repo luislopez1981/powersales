@@ -10,10 +10,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
-<a href= "./panelprincipal.jsp">Inicio</a>
+
+<header>
+            <h1 class="pull-left logo">PowerSales</h1>
+            <div class="loginHome pull-right">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <p class="user">Nombre Apellidos</p>
+            </div>
+        </header>
+<main>
+            <div class="menuHome">
+                <ul>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="Oferta.jsp" role="button">Ofertas</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="contactos.jsp" role="button">Contactos</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
+                    </li>
+                </ul>
+            </div>
+
+        </main>
         <div class="container">
             <h1>Nuevo contacto</h1>
             <form class="form-signin" action="./CreaContacto" method="POST">
