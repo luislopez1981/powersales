@@ -37,10 +37,12 @@
 
     <body>
         <header>
-            <h1 class="pull-left logo">PowerSales</h1>
+            <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <p class="user">Nombre Apellidos</p>
+                <script>
+                    var f = new Date();
+                    document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                </script>
             </div>
         </header>
 
@@ -58,7 +60,6 @@
                     </li>
                 </ul>
             </div>
-
         </main>
 
         <div class="container">
@@ -71,9 +72,7 @@
             <form action="./BuscaOferta" method="POST" id="buscaoferta">
                 <label>Buscar Oferta</label>
                 <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Buscar
-                </button>
+                <button type="submit">Buscar</button>
             </form>
 
             <table class="table">
@@ -88,6 +87,7 @@
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Precio</th>
+                    <th></th>
                  </tr>
                 <%while (busqueda.next()) {%>
                 <tr><form  action="./BuscaOferta2" method="POST">

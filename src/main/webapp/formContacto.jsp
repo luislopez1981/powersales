@@ -16,13 +16,16 @@
     <body>
 
 <header>
-            <h1 class="pull-left logo">PowerSales</h1>
+            <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <p class="user">Nombre Apellidos</p>
+                <script>
+                    var f = new Date();
+                    document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                </script>
             </div>
         </header>
-<main>
+
+        <main>
             <div class="menuHome">
                 <ul>
                     <li role="presentation">
@@ -36,7 +39,6 @@
                     </li>
                 </ul>
             </div>
-
         </main>
         <div class="container">
             <h1>Nuevo contacto</h1>
