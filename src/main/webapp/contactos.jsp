@@ -45,6 +45,15 @@
                 });
             });
         </script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaContactos',
+                        function (responseText) {
+                            $('#tablatotal').html(responseText);
+
+                        });
+            });
+        </script>
     </head>
 
     <body>
@@ -73,9 +82,9 @@
                 </ul>
             </div>
         </main>
-
+        <div id="tablatotal"></div>
         <div class="container">
-            
+
             <a href="formContacto.jsp" class="btn btn-default btn-lg">Crear contacto</a>
 
             <h5>Búsqueda de contacto</h5>

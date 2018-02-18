@@ -35,19 +35,25 @@
             $(document).ready(function () {
                 $('#submit2').click(function (event) {
                     var matriculaVar = $('#matricula').val();
-
-
                     $.post('./BuscaVehiculo', {
                         matricula: matriculaVar,
-
                     }, function (responseText) {
                         $('#tablacoches').html(responseText);
                     });
                 });
             });
         </script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaStock',
+                        function (responseText) {
+                            $('#tablatotal').html(responseText);
 
+                        });
+            });
+        </script>
         
+
     </head>
 
     <body>
@@ -76,9 +82,9 @@
                 </ul>
             </div>
         </main>
-
+        <div id="tablatotal"></div>
         <div class="container">
-            
+
 
             <h5>Búsqueda de vehículo</h5>
             <form id="form1">
@@ -86,9 +92,10 @@
                 <input type="button" id="submit2" value="Buscar" />
             </form>
             <br>
-                    <div id="tablacoches"></div>
+            <div id="tablacoches"></div>
 
         </div>
+
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -96,6 +103,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
-        
+
     </body>
 </html>

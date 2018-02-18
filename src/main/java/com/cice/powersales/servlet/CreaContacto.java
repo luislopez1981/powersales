@@ -59,7 +59,7 @@ public class CreaContacto extends HttpServlet {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        resp.sendRedirect("./panelprincipal.jsp");
+        resp.sendRedirect("./contactos.jsp");
     }
     
     

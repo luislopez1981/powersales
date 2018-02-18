@@ -31,6 +31,15 @@
         <link href="css/style.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaOfertas',
+                        function (responseText) {
+                            $('#tablatotal').html(responseText);
+
+                        });
+            });
+        </script>
 
         
     </head>
@@ -62,6 +71,7 @@
             </div>
         </main>
 
+        <div id="tablatotal"></div>
         <div class="container">
 
             <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>
