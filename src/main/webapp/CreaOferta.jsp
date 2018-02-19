@@ -97,7 +97,7 @@
                 </table>    
             </div>
             <%}
-                        }%>                    
+                }%>                    
 
 
             <%if (existeBusqueda2) {%>
@@ -125,37 +125,23 @@
                         <td><%=busqueda2.getString("motor")%></td>                        
                         <td><%=busqueda2.getString("potencia")%></td>                        
                         <td><%=busqueda2.getString("precio")%></td> 
-                    <form action="./CreaOferta" method="POST" id="creaoferta">
-                        <label>Precio Final</label>
-                        <input name="precioFinal" type="text" class="form-control" placeholder="Importe" required>
-                        <label>Comentarios</label>
-                        <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
 
-                        <input type="hidden" form="creaoferta" name="contactoId" value="<%=idContacto%>"/>
-                        <input type="hidden" form="creaoferta" name="vehiculoId" value="<%=idVehiculo%>"/>
-                        <input type="date" name="fecha" value="<%=fechaFormat%>"/>
-                        <button type="submit">Crear</button>
-                    </form>   
                     </tr>
                 </table> 
             </div>
+            <form action="./CreaOferta" method="POST" id="creaoferta">
+                <label>Precio Final</label>
+                <input name="precioFinal" type="text" class="form-control" placeholder="Importe" required>
+                <label>Comentarios</label>
+                <input name="comentario" class="form-control" placeholder="Observaciones">
+                <input type="hidden" form="creaoferta" name="contactoId" value="<%=idContacto%>"/>
+                <input type="hidden" form="creaoferta" name="vehiculoId" value="<%=idVehiculo%>"/>
+                <button type="submit">Crear</button>
+            </form>          
             <%}
                 }%>                    
 
 
-
-            <!--            <form action="./CreaOferta" method="POST" id="creaoferta">
-                            <label>Precio Final</label>
-                            <input name="precioFinal" type="text" class="form-control" placeholder="Importe" required>
-                            <label>Comentarios</label>
-                            <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
-            
-                            <input type="hidden" form="creaoferta" name="contactoId" value="<%=idContacto%>"/>
-                            <input type="hidden" form="creaoferta" name="vehiculoId" value="<%=idVehiculo%>"/>
-                            <input type="date" name="fecha" value="<%=fechaFormat%>"/>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Crear</button>
-                            <button type="submit">Crear</button>
-                        </form>     -->
         </div>
 
 

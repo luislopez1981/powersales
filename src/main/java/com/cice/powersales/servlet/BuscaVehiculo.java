@@ -40,7 +40,7 @@ public class BuscaVehiculo extends HttpServlet {
             
             Statement st = connection.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT * FROM vehiculos WHERE matricula = '" + matri + "'");
+            ResultSet rs = st.executeQuery("SELECT *,date_format (fechamatricula, '%d/%m/%Y') as fechaFormat FROM vehiculos WHERE matricula = '" + matri + "'");
             
             out.println("<table class=\"table\">");
             out.println("<tr>");
@@ -73,7 +73,7 @@ public class BuscaVehiculo extends HttpServlet {
                 out.println("<td>" + rs.getString("potencia") + "</td>");
                 out.println("<td>" + rs.getString("combustible") + "</td>");
                 out.println("<td>" + rs.getString("color") + "</td>");
-                out.println("<td>" + rs.getString("fechamatricula") + "</td>");
+                out.println("<td>" + rs.getString("fechaFormat") + "</td>");
                 out.println("<td>" + rs.getString("kilometraje") + "</td>");
                 out.println("<td>" + rs.getString("precio") + "</td>");
                 out.println("<td><input type=\"checkbox\" name=\"contacto\" value=\"contacto\"></td>");

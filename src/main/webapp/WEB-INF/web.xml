@@ -56,6 +56,10 @@
         <servlet-name>CuentaContactos</servlet-name>
         <servlet-class>com.cice.powersales.servlet.CuentaContactos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarContacto</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.EditarContacto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>CuentaContactos</servlet-name>
         <url-pattern>/CuentaContactos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarContacto</servlet-name>
+        <url-pattern>/EditarContacto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,10 +1,10 @@
 <%
-    ResultSet rs = (ResultSet) request.getAttribute("encontrados");
+//    ResultSet rs = (ResultSet) request.getAttribute("encontrados");
 
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
 
-    String contactoId = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";
+    String idContacto = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";
 
 %>
 <%@page import="java.util.Iterator"%>
@@ -31,20 +31,20 @@
         <link href="css/style.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery-latest.js"></script> 
-        <script>
-            $(document).ready(function () {
-                $('#submit').click(function (event) {
-                    var telefonoVar = $('#telefono').val();
-
-
-                    $.post('./BuscaContacto', {
-                        telefono: telefonoVar,
-                    }, function (responseText) {
-                        $('#tabla').html(responseText);
-                    });
-                });
-            });
-        </script>
+        <!--                <script>
+                            $(document).ready(function () {
+                                $('#submit').click(function (event) {
+                                    var telefonoVar = $('#telefono').val();
+                
+                
+                                    $.post('./BuscaContacto', {
+                                        telefono: telefonoVar,
+                                    }, function (responseText) {
+                                        $('#tabla').html(responseText);
+                                    });
+                                });
+                            });
+                        </script>-->
         <script>
             $().ready(function () {
                 $.post('./CuentaContactos',
@@ -87,15 +87,23 @@
 
             <a href="formContacto.jsp" class="btn btn-default btn-lg">Crear contacto</a>
 
-            <h5>Búsqueda de contacto</h5>
-            <form id="form1">
-                Teléfono:<input type="text" id="telefono" />
-                <input type="button" id="submit" value="Buscar" />
-                <br>
-                <div id="tabla"></div>             
-            </form>
 
-            <table>
+
+            <h5>Búsqueda de contacto</h5>
+
+            <form action="./BuscaContacto" method="POST" id="buscacontacto">
+                <label>Buscar Contacto</label>
+                <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                <button type="submit">Buscar</button>
+            </form>
+            <!--            <form id="form1">
+                            Teléfono:<input type="text" id="telefono" />
+                            <input type="button" id="submit" value="Buscar" />
+                            <br>
+                            <div id="tabla"></div>             
+                        </form>-->
+
+            <table class="table">
                 <%                            if (existeBusqueda) {
                 %>
 
@@ -103,22 +111,35 @@
                     <th>Nombre</th>
                     <th>Primer Apellido</th>
                     <th>Segundo Apellido</th>
-                    <th>Fecha</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Precio</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Código Postal</th>
+                    <th></th>
                 </tr>
-                <%while (busqueda.next()) {%>
+                <%while (busqueda.next()){%>
+               
                 <tr>
                     <td><%=busqueda.getString("nombre")%></td>
                     <td><%=busqueda.getString("apellido1")%></td>
                     <td><%=busqueda.getString("apellido2")%></td>
-                    <td><%=busqueda.getString("fecha")%></td>
-                    <td><%=busqueda.getString("marca")%></td>
-                    <td><%=busqueda.getString("modelo")%></td>
-                    <td><%=busqueda.getString("precioFinal")%></td>
+                    <td><%=busqueda.getString("telefono")%></td>
+                    <td><%=busqueda.getString("email")%></td>
+                    <td><%=busqueda.getString("cp")%></td>
+                    <td></td>                    
                 </tr>
-
+                <tr><form action="./EditarContacto" method="POST">
+                    <td><input name="nombre" type="text"  placeholder="Nombre" required></td>
+                    <td><input name="apellido1" type="text"  placeholder="Primer Apellido" required></td>
+                    <td><input name="apellido2" type="text"  placeholder="Segundo Apellido" required></td>
+                    <td><input name="telefono" type="text"  placeholder="Teléfono" required></td>
+                    <td><input name="email" type="text"  placeholder="E-Mail" required></td>
+                    <td><input name="cp" type="text"  placeholder="Código Postal" required></td>
+                    <td><input type="submit" value="Editar"></td>
+                    </tr>
+                    <input type="hidden"  name="idContacto" value="<%=busqueda.getString("idContacto")%>"/>
+                    
+                </form>
+                
                 <%}
                     }%>
             </table>

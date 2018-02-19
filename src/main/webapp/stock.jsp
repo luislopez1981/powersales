@@ -1,12 +1,4 @@
-<%
-    /*ResultSet rs = (ResultSet) request.getAttribute("encontrados");
 
-    ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
-    Boolean existeBusqueda = busqueda != null;
-
-    String contactoId = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";*/
-
-%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>

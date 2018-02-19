@@ -1,5 +1,5 @@
 <%
-    ResultSet rs = (ResultSet) request.getAttribute("encontrados");
+    //ResultSet rs = (ResultSet) request.getAttribute("encontrados");
 
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
@@ -105,7 +105,7 @@
                     <td><%=busqueda.getString("nombre")%></td>
                     <td><%=busqueda.getString("apellido1")%></td>
                     <td><%=busqueda.getString("apellido2")%></td>
-                    <td><%=busqueda.getString("fecha")%></td>
+                    <td><%=busqueda.getString("fechaFormat")%></td>
                     <td><%=busqueda.getString("marca")%></td>
                     <td><%=busqueda.getString("modelo")%></td>
                     <td><%=busqueda.getString("precioFinal")%></td>
@@ -125,44 +125,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#submit').click(function (event) {
-                    var telefonoVar = $('#telefono').val();
-
-
-                    $.post('./BuscaContacto', {
-                        telefono: telefonoVar,
-
-                    }, function (responseText) {
-                        $('#tabla').html(responseText);
-                    });
-                });
-
-                $('#submit2').click(function (event) {
-                    var matriculaVar = $('#matricula').val();
-
-
-                    $.post('./BuscaVehiculo', {
-                        matricula: matriculaVar,
-
-                    }, function (responseText) {
-                        $('#tablacoches').html(responseText);
-                    });
-                });
-
-                $('#submit3').click(function (event) {
-                    var telefonoVar = $('#telefono').val();
-
-
-                    $.post('./BuscaOferta', {
-                        telefono: telefonoVar,
-
-                    }, function (responseText) {
-                        $('#tablaofertas').html(responseText);
-                    });
-                });
-            });
-        </script>
+        
     </body>
 </html>

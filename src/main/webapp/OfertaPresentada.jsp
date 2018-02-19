@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <td> </td>
-                <td><%=busqueda.getString("fecha")%></td>
+                <td><%=busqueda.getString("fechaFormat")%></td>
             </tr>
         </table>
 
@@ -150,8 +150,8 @@
         <td><%=busqueda.getString("comentario")%></td>
     </tr>
 </table>
-<!--<h3>OBSERVACIONES</h3>
-<p><%=busqueda.getString("comentario")%></p>-->
+
+
 <form action="./ModificaComentario" method="POST">
     <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
     <input type="hidden"  name="idOferta" value="<%=busqueda.getString("idOferta")%>"/>
