@@ -180,13 +180,22 @@
             <tr>
                 <td><%=busqueda.getString("comentario")%></td>
             </tr>
+        </table> <table class="table">
+            <tr>
+                <th><h4>FIRMADO COMPRADOR</h4></th>
+                <th><h4>FIRMADO FIRMADO POWERMOTOR, S.L.</h4></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
         </table>
 
         <%}
             }%>
 
-        <H4> PowerMotor, S.L. le agradece la confianza depositada. Estamos a su entera disposición para continuar ayudándole a elegir su coche.</h4>
-        <h4>Si lo desea, solicite una prueba a su asesor comercial.</h4>
+        <H4> PowerMotor, S.L. le agradece la confianza depositada.</h4>
+        <h4>Alargue la vida de su nuevo vehículo confiando el mantenimiento a PowerMotor, S.L.</h4>
 
     </body>
 </html>
