@@ -71,6 +71,9 @@
                     <li role="presentation">
                         <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
                     </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="pedidos.jsp" role="button">Pedidos</a>
+                    </li>
                 </ul>
             </div>
         </main>

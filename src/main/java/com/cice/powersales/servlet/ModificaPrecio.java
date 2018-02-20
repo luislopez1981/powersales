@@ -55,7 +55,7 @@ public class ModificaPrecio extends HttpServlet {
 
             Statement st = connection.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT * FROM ofertas INNER join contactos inner join vehiculos where ofertas.idContacto=contactos.idContacto AND ofertas.idVehiculo=vehiculos.idVehiculo AND idOferta='" + idOferta + "'");
+            ResultSet rs = st.executeQuery("SELECT * , date_format (fecha, '%d/%m/%Y') as fechaFormat FROM ofertas INNER join contactos inner join vehiculos where ofertas.idContacto=contactos.idContacto AND ofertas.idVehiculo=vehiculos.idVehiculo AND idOferta='" + idOferta + "'");
 
             req.setAttribute("busqueda", rs);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OfertaPresentada.jsp");

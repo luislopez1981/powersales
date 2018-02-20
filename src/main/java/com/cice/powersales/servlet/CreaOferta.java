@@ -35,7 +35,7 @@ public class CreaOferta extends HttpServlet {
         Integer precioFinal = Integer.parseInt(req.getParameter("precioFinal"));
 
         String comentario = req.getParameter("comentario");
-        //String fecha = req.getParameter("fecha");
+        
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

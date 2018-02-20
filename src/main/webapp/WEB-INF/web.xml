@@ -60,6 +60,22 @@
         <servlet-name>EditarContacto</servlet-name>
         <servlet-class>com.cice.powersales.servlet.EditarContacto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>formPedido</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.formPedido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreaPedido</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.CreaPedido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscaPedidos</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.BuscaPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscaPedidos2</servlet-name>
+        <servlet-class>com.cice.powersales.servlet.BuscaPedidos2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -119,6 +135,22 @@
     <servlet-mapping>
         <servlet-name>EditarContacto</servlet-name>
         <url-pattern>/EditarContacto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>formPedido</servlet-name>
+        <url-pattern>/formPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreaPedido</servlet-name>
+        <url-pattern>/CreaPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaPedidos</servlet-name>
+        <url-pattern>/BuscaPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaPedidos2</servlet-name>
+        <url-pattern>/BuscaPedidos2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

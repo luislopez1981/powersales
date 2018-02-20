@@ -6,6 +6,7 @@
 package com.cice.powersales.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,31 +24,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NYL
  */
-public class ModificaComentario extends HttpServlet {
+public class BuscaPedidos2 extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String comentario = req.getParameter("comentario");
-        String idOferta = req.getParameter("idOferta");
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/powersales", "root", "root");
-
-            String SQL = "UPDATE  ofertas SET comentario = '" + comentario + "'where idOferta = '" + idOferta + "'";
-
-            Statement st = connection.createStatement();
-            st.execute(SQL);
-
-            st.close();
-            connection.close();
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        String idPedido = req.getParameter("idPedido");
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -55,10 +37,10 @@ public class ModificaComentario extends HttpServlet {
 
             Statement st = connection.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT * , date_format (fecha, '%d/%m/%Y') as fechaFormat FROM ofertas INNER join contactos inner join vehiculos where ofertas.idContacto=contactos.idContacto AND ofertas.idVehiculo=vehiculos.idVehiculo AND idOferta='" + idOferta + "'");
+            ResultSet rs = st.executeQuery("SELECT *, date_format (fechaPedido, '%d/%m/%Y') as fechaFormat FROM pedidos INNER JOIN OFERTAS INNER JOIN VEHICULOS INNER JOIN CONTACTOS where ofertas.idContacto=contactos.idContacto AND ofertas.idVehiculo=vehiculos.idVehiculo AND pedidos.idOferta = ofertas.idOferta AND idPedido ='"+idPedido+"'");
 
             req.setAttribute("busqueda", rs);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OfertaPresentada.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PedidoPresentado.jsp");
             dispatcher.forward(req, resp);
             rs.close();
             st.close();
@@ -68,6 +50,8 @@ public class ModificaComentario extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(BuscaVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
+    
+    
 }
