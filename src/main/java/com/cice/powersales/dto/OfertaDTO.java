@@ -5,8 +5,6 @@
  */
 package com.cice.powersales.dto;
 
-import java.sql.Date;
-
 /**
  *
  * @author NYL

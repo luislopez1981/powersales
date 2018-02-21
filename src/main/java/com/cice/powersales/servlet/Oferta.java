@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cice.powersales.servlet;
 
 import java.io.IOException;
@@ -19,10 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author NYL
- */
 public class Oferta extends HttpServlet {
 
     @Override
@@ -51,5 +42,4 @@ public class Oferta extends HttpServlet {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }

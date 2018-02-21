@@ -14,7 +14,7 @@
 
     String idVehiculo = "", idContacto = "";
 %>
-<%@page import="com.cice.powersales.dto.ContactoEncontradoDTO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet">
         <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-        <title>JSP Page <%=fechaFormat%></title>
+        <title>PowerSales</title>
 
     </head>
     <body>  
@@ -73,7 +73,6 @@
             <%if (existeBusqueda) {%>
             <%while (busqueda.next()) {
                     idContacto = busqueda.getString("idContacto");
-
             %>
 
             <div>

@@ -1,11 +1,8 @@
 <%
-//    ResultSet rs = (ResultSet) request.getAttribute("encontrados");
-
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
 
     String idContacto = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";
-
 %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -24,27 +21,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>contactos</title>
+        <title>PowerSales</title>
 
         <!-- Bootstrap -->
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery-latest.js"></script> 
-        <!--                <script>
-                            $(document).ready(function () {
-                                $('#submit').click(function (event) {
-                                    var telefonoVar = $('#telefono').val();
-                
-                
-                                    $.post('./BuscaContacto', {
-                                        telefono: telefonoVar,
-                                    }, function (responseText) {
-                                        $('#tabla').html(responseText);
-                                    });
-                                });
-                            });
-                        </script>-->
+
         <script>
             $().ready(function () {
                 $.post('./CuentaContactos',
@@ -99,12 +83,6 @@
                 <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
                 <button type="submit">Buscar</button>
             </form>
-            <!--            <form id="form1">
-                            Teléfono:<input type="text" id="telefono" />
-                            <input type="button" id="submit" value="Buscar" />
-                            <br>
-                            <div id="tabla"></div>             
-                        </form>-->
 
             <table class="table">
                 <%                            if (existeBusqueda) {
@@ -119,8 +97,8 @@
                     <th>Código Postal</th>
                     <th></th>
                 </tr>
-                <%while (busqueda.next()){%>
-               
+                <%while (busqueda.next()) {%>
+
                 <tr>
                     <td><%=busqueda.getString("nombre")%></td>
                     <td><%=busqueda.getString("apellido1")%></td>
@@ -140,9 +118,9 @@
                     <td><input type="submit" value="Editar"></td>
                     </tr>
                     <input type="hidden"  name="idContacto" value="<%=busqueda.getString("idContacto")%>"/>
-                    
+
                 </form>
-                
+
                 <%}
                     }%>
             </table>

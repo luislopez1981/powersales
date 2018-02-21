@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <title>PowerSales</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PowerSales</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
 
-      <!-- Bootstrap -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/style.css" rel="stylesheet">
+    <body>
 
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-   </head>
+        <header>
+            <h1 class="pull-left logo">PowerSales</h1>
+            <div class="loginHome pull-right">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <p class="user">Nombre Apellidos</p>
+            </div>
 
-   <body>
+        </header>
+        <main>
+            <div class="menuHome">
+                <ul>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="Oferta.jsp" role="button">Ofertas</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="contactos.jsp" role="button">Contactos</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
+                    </li>
+                </ul>
+            </div>
 
-      <header>
-         <h1 class="pull-left logo">PowerSales</h1>
-         <div class="loginHome pull-right">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <p class="user">Nombre Apellidos</p>
-         </div>
+        </main>
 
-      </header>
-      <main>
-         <div class="menuHome">
-            <ul>
-               <li role="presentation">
-                  <a class="btn btn-default btn-lg" href="Oferta.jsp" role="button">Ofertas</a>
-               </li>
-               <li role="presentation">
-                  <a class="btn btn-default btn-lg" href="contactos.jsp" role="button">Contactos</a>
-               </li>
-               <li role="presentation">
-                  <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
-               </li>
-            </ul>
-         </div>
-
-      </main>
-
-   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/myScript.js"></script>
-   <script type="text/javascript">
-
-
-   </script>
-   </body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/myScript.js"></script>
+        <script type="text/javascript">
+        </script>
+    </body>
 </html>

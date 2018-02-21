@@ -1,7 +1,5 @@
 <%
-
     Boolean existeError = request.getParameter("error") != null;
-
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

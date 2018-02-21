@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cice.powersales.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,15 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author NYL
- */
 public class EditarContacto extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+
         Integer idContacto = Integer.valueOf(req.getParameter("idContacto"));
         String nombre = req.getParameter("nombre");
         String apellido1 = req.getParameter("apellido1");
@@ -63,7 +53,7 @@ public class EditarContacto extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/powersales", "root", "root");
@@ -84,7 +74,4 @@ public class EditarContacto extends HttpServlet {
             Logger.getLogger(BuscaVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-
 }

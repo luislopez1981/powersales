@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cice.powersales.servlet;
 
 import java.io.IOException;
@@ -19,43 +14,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *x
- * @author NYL
- */
 public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         
+
         String user = req.getParameter("user");
         String pass = req.getParameter("pass");
-        
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/powersales","root","root");
-            
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/powersales", "root", "root");
+
             Statement st = connection.createStatement();
-            ResultSet busqueda = st.executeQuery("SELECT * FROM usuarios WHERE user = '"+user+"' AND pass = '"+pass+"'");
-            
-            if(busqueda.first()){
+            ResultSet busqueda = st.executeQuery("SELECT * FROM usuarios WHERE user = '" + user + "' AND pass = '" + pass + "'");
+
+            if (busqueda.first()) {
                 resp.sendRedirect("./Oferta.jsp");
-            }
-            else{
+            } else {
                 resp.sendRedirect("./index.jsp?error");
             }
             busqueda.close();
             st.close();
             connection.close();
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
-    
-    
-    
 }

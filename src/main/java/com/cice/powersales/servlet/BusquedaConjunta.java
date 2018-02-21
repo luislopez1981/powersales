@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cice.powersales.servlet;
 
 import java.io.IOException;
@@ -19,15 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author NYL
- */
 public class BusquedaConjunta extends HttpServlet {
-    
-    
-    
-     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String matricula = req.getParameter("matricula");
         String tel = req.getParameter("telefono");
@@ -40,17 +29,16 @@ public class BusquedaConjunta extends HttpServlet {
             ResultSet busqueda = st.executeQuery("SELECT * FROM contactos WHERE telefono = '" + tel + "'");
             Statement st2 = connection.createStatement();
             ResultSet busqueda2 = st2.executeQuery("SELECT * FROM vehiculos WHERE matricula = '" + matricula + "'");
-            
-            
-            req.setAttribute("busqueda", busqueda);            
-            req.setAttribute("busqueda2", busqueda2);            
+
+            req.setAttribute("busqueda", busqueda);
+            req.setAttribute("busqueda2", busqueda2);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CreaOferta.jsp");
             dispatcher.forward(req, resp);
 
             busqueda.close();
             busqueda2.close();
             st.close();
-            st2.close();            
+            st2.close();
             connection.close();
 
         } catch (ClassNotFoundException ex) {
@@ -58,8 +46,5 @@ public class BusquedaConjunta extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
-
 }

@@ -1,10 +1,8 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%
-
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
-
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>SOLICITUD DE INFORMACIÓN</title>
+        <title>PowerSales</title>
     </head>
     <body>
         <header>
@@ -148,8 +146,8 @@
                 <td><%=Double.parseDouble(busqueda.getString("precioFinal"))%> €</td>
             </tr>
         </table>
-            
-            <h3>RESUMEN FORMA DE PAGO</h3>
+
+        <h3>RESUMEN FORMA DE PAGO</h3>
         <table class="table">
             <tr>
                 <th>Señal:</th>
@@ -183,7 +181,7 @@
         </table> <table class="table">
             <tr>
                 <th><h4>FIRMADO COMPRADOR</h4></th>
-                <th><h4>FIRMADO FIRMADO POWERMOTOR, S.L.</h4></th>
+                <th><h4>FIRMADO POWERMOTOR, S.L.</h4></th>
             </tr>
             <tr>
                 <td></td>

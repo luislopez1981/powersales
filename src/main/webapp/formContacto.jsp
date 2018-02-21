@@ -1,9 +1,3 @@
-<%-- 
-    Document   : formContacto
-    Created on : 21-dic-2017, 20:27:40
-    Author     : NYL
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,11 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>PowerSales</title>
     </head>
     <body>
 
-<header>
+        <header>
             <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
                 <script>

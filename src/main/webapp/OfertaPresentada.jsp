@@ -1,10 +1,8 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%
-
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
-
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>SOLICITUD DE INFORMACIÓN</title>
+        <title>PowerSales</title>
     </head>
     <body>
         <header>
@@ -49,7 +47,7 @@
         %>
         <%while (busqueda.next()) {
         %>
-        
+
         <table class="table">
             <tr>
                 <th><h3>SOLICITUD DE INFORMACIÓN DE UN VEHÍCULO DE OCASIÓN</h3></th>
@@ -146,31 +144,31 @@
         </form>
 
         <table class="table">
-    <tr>
-        <th><h3>OBSERVACIONES</h3></th>
-    </tr>
-    <tr>
-        <td><%=busqueda.getString("comentario")%></td>
-    </tr>
-</table>
+            <tr>
+                <th><h3>OBSERVACIONES</h3></th>
+            </tr>
+            <tr>
+                <td><%=busqueda.getString("comentario")%></td>
+            </tr>
+        </table>
 
 
-<form action="./ModificaComentario" method="POST">
-    <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
-    <input type="hidden"  name="idOferta" value="<%=busqueda.getString("idOferta")%>"/>
-    <button  type="submit">Modificar</button>
-</form>
-    <form action="./formPedido" method="POST">
-    <input type="hidden"  name="idOferta" value="<%=busqueda.getString("idOferta")%>"/>
-    <input type="hidden"  name="idContacto" value="<%=busqueda.getString("idContacto")%>"/>
-    <button  type="submit">Crear Pedido</button>
-</form>
+        <form action="./ModificaComentario" method="POST">
+            <textarea name="comentario" rows="4" cols="20">Comentarios</textarea>
+            <input type="hidden"  name="idOferta" value="<%=busqueda.getString("idOferta")%>"/>
+            <button  type="submit">Modificar</button>
+        </form>
+        <form action="./formPedido" method="POST">
+            <input type="hidden"  name="idOferta" value="<%=busqueda.getString("idOferta")%>"/>
+            <input type="hidden"  name="idContacto" value="<%=busqueda.getString("idContacto")%>"/>
+            <button  type="submit">Crear Pedido</button>
+        </form>
 
-<%}
-    }%>
+        <%}
+            }%>
 
-<H4> PowerMotor, S.L. le agradece la confianza depositada. Estamos a su entera disposición para continuar ayudándole a elegir su coche.</h4>
-<h4>Si lo desea, solicite una prueba a su asesor comercial.</h4>
+        <H4> PowerMotor, S.L. le agradece la confianza depositada. Estamos a su entera disposición para continuar ayudándole a elegir su coche.</h4>
+        <h4>Si lo desea, solicite una prueba a su asesor comercial.</h4>
 
-</body>
+    </body>
 </html>

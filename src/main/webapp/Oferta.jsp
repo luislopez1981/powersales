@@ -1,11 +1,8 @@
 <%
-    //ResultSet rs = (ResultSet) request.getAttribute("encontrados");
-
     ResultSet busqueda = (ResultSet) request.getAttribute("busqueda");
     Boolean existeBusqueda = busqueda != null;
 
     String contactoId = "", nombre = "", apellido1 = "", apellido2 = "", coche = "";
-
 %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -23,8 +20,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Oferta</title>
+        <title>PowerSales</title>
 
         <!-- Bootstrap -->
         <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +37,7 @@
             });
         </script>
 
-        
+
     </head>
 
     <body>
@@ -80,7 +76,7 @@
             <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>
 
             <h5>Búsqueda de Ofertas</h5>
-            
+
 
             <form action="./BuscaOferta" method="POST" id="buscaoferta">
                 <label>Buscar Oferta</label>
@@ -101,10 +97,10 @@
                     <th>Modelo</th>
                     <th>Precio</th>
                     <th></th>
-                 </tr>
+                </tr>
                 <%while (busqueda.next()) {%>
                 <tr><form  action="./BuscaOferta2" method="POST">
-                    
+
                     <td><%=busqueda.getString("nombre")%></td>
                     <td><%=busqueda.getString("apellido1")%></td>
                     <td><%=busqueda.getString("apellido2")%></td>
@@ -128,6 +124,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
-        
+
     </body>
 </html>
