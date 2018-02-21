@@ -32,22 +32,12 @@
                 });
             });
         </script>
-        <script>
-            $().ready(function () {
-                $.post('./CuentaStock',
-                        function (responseText) {
-                            $('#tablatotal').html(responseText);
-
-                        });
-            });
-        </script>
-
 
     </head>
 
     <body>
         <header>
-            <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
+            <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
                 <script>
                     var f = new Date();
@@ -74,7 +64,7 @@
                 </ul>
             </div>
         </main>
-        <div id="tablatotal"></div>
+
         <div class="container">
 
 

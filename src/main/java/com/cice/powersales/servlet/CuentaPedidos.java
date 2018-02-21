@@ -14,34 +14,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Login extends HttpServlet {
+public class CuentaPedidos extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String user = req.getParameter("user");
-        String pass = req.getParameter("pass");
+        resp.setContentType("text/html; charset=iso-8859-1");
+        PrintWriter out = resp.getWriter();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/powersales", "root", "root");
 
             Statement st = connection.createStatement();
-            ResultSet busqueda = st.executeQuery("SELECT * FROM usuarios WHERE user = '" + user + "' AND pass = '" + pass + "'");
 
-            if (busqueda.first()) {
-                resp.sendRedirect("./panelprincipal.jsp");
-            } else {
-                resp.sendRedirect("./index.jsp?error");
+            ResultSet rs = st.executeQuery("SELECT COUNT(*) AS TOTAL FROM pedidos WHERE month(fechaPedido)=month(curdate());");
+
+            out.println("<div class=\"container\">");
+            out.println("<table>");
+            out.println("<tr>");
+            out.println("<th>PEDIDOS GENERADOS ESTE MES</th>");
+            out.println("</tr>");
+
+            while (rs.next()) {
+
+                out.println("<tr>");
+                out.println("<td>" + rs.getString("TOTAL") + "</td>");
+                out.println("</tr>");
+                out.println("</form>");
+                out.println("</div>");
             }
-            busqueda.close();
+            out.println("</table>");
+
+            rs.close();
             st.close();
             connection.close();
-
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscaVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscaVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

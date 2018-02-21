@@ -28,21 +28,12 @@
         <link href="css/style.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery-latest.js"></script> 
-
-        <script>
-            $().ready(function () {
-                $.post('./CuentaContactos',
-                        function (responseText) {
-                            $('#tablatotal').html(responseText);
-
-                        });
-            });
-        </script>
+        
     </head>
 
     <body>
         <header>
-            <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
+            <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
                 <script>
                     var f = new Date();
@@ -69,7 +60,7 @@
                 </ul>
             </div>
         </main>
-        <div id="tablatotal"></div>
+        
         <div class="container">
 
             <a href="formContacto.jsp" class="btn btn-default btn-lg">Crear contacto</a>
@@ -80,7 +71,7 @@
 
             <form action="./BuscaContacto" method="POST" id="buscacontacto">
                 <label>Buscar Contacto</label>
-                <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                    <input name="telefono" type="text" class="form-control" placeholder="Teléfono" required>
                 <button type="submit">Buscar</button>
             </form>
 

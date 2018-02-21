@@ -27,22 +27,14 @@
         <link href="css/style.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script>
-            $().ready(function () {
-                $.post('./CuentaOfertas',
-                        function (responseText) {
-                            $('#tablatotal').html(responseText);
-
-                        });
-            });
-        </script>
+        
 
 
     </head>
 
     <body>
         <header>
-            <a href= "./Oferta.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
+            <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
                 <script>
                     var f = new Date();
@@ -70,7 +62,7 @@
             </div>
         </main>
 
-        <div id="tablatotal"></div>
+        
         <div class="container">
 
             <a href="CreaOferta.jsp" class="btn btn-default btn-lg">Crear oferta</a>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,18 +9,59 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/myScript.js"></script>
+        <script type="text/javascript"></script>
+         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaOfertas',
+                        function (responseText) {
+                            $('#tablaofertas').html(responseText);
+
+                        });
+            });
+        </script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaContactos',
+                        function (responseText) {
+                            $('#tablacontactos').html(responseText);
+
+                        });
+            });
+        </script>
+        <script>
+            $().ready(function () {
+                $.post('./CuentaStock',
+                        function (responseText) {
+                            $('#tablastock').html(responseText);
+
+                        });
+            });
+        </script><script>
+            $().ready(function () {
+                $.post('./CuentaPedidos',
+                        function (responseText) {
+                            $('#tablapedidos').html(responseText);
+
+                        });
+            });
+        </script>
     </head>
 
     <body>
 
         <header>
-            <h1 class="pull-left logo">PowerSales</h1>
+            <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
             <div class="loginHome pull-right">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <p class="user">Nombre Apellidos</p>
+                <script>
+                    var f = new Date();
+                    document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                </script>
             </div>
-
         </header>
+
         <main>
             <div class="menuHome">
                 <ul>
@@ -32,17 +74,24 @@
                     <li role="presentation">
                         <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
                     </li>
+                    <li role="presentation">
+                        <a class="btn btn-default btn-lg" href="pedidos.jsp" role="button">Pedidos</a>
+                    </li>
                 </ul>
             </div>
-
         </main>
-
+        <div class="container">
+         <h4>PANEL DE CONTROL</h4>   
+        </div>
+        
+        <div id="tablaofertas"></div>
+        <div id="tablacontactos"></div>
+        <div id="tablastock"></div>
+        <div id="tablapedidos"></div>
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/myScript.js"></script>
-        <script type="text/javascript">
-        </script>
+        
     </body>
 </html>
