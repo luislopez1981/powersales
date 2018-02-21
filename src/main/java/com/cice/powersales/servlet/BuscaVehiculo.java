@@ -32,7 +32,7 @@ public class BuscaVehiculo extends HttpServlet {
 
             ResultSet rs = st.executeQuery("SELECT *,date_format (fechamatricula, '%d/%m/%Y') as fechaFormat FROM vehiculos WHERE matricula = '" + matri + "'");
 
-            out.println("<table class=\"table\">");
+            out.println("<table class=\"table table-bordered\">");
             out.println("<tr>");
             out.println("<th> Nº STOCK </th>");
             out.println("<th> MATRICULA </th>");
@@ -46,7 +46,6 @@ public class BuscaVehiculo extends HttpServlet {
             out.println("<th> FECHA 1ª MATRICULACIÓN </th>");
             out.println("<th> KILOMETRAJE </th>");
             out.println("<th> PRECIO </th>");
-            out.println("<th>  </th>");
             out.println("</tr>");
 
             while (rs.next()) {
