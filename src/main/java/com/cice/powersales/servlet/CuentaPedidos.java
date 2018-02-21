@@ -30,21 +30,13 @@ public class CuentaPedidos extends HttpServlet {
 
             ResultSet rs = st.executeQuery("SELECT COUNT(*) AS TOTAL FROM pedidos WHERE month(fechaPedido)=month(curdate());");
 
-            out.println("<div class=\"container\">");
-            out.println("<table>");
-            out.println("<tr>");
-            out.println("<th>PEDIDOS GENERADOS ESTE MES</th>");
-            out.println("</tr>");
+            
+            out.println("<h5>PEDIDOS GENERADOS ESTE MES</h5>");           
 
-            while (rs.next()) {
-
-                out.println("<tr>");
-                out.println("<td>" + rs.getString("TOTAL") + "</td>");
-                out.println("</tr>");
-                out.println("</form>");
-                out.println("</div>");
+            while (rs.next()) {               
+                out.println("<p>" + rs.getString("TOTAL") + "</p>");                
             }
-            out.println("</table>");
+            
 
             rs.close();
             st.close();

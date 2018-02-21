@@ -29,21 +29,13 @@ public class CuentaContactos extends HttpServlet {
             Statement st = connection.createStatement();
 
             ResultSet rs = st.executeQuery("SELECT COUNT(*) AS TOTAL FROM contactos WHERE month(fechaContacto)=month(curdate());");
-            out.println("<div class=\"container\">");
-            out.println("<table>");
-            out.println("<tr>");
-            out.println("<th>CONTACTOS CREADOS ESTE MES</th>");
-            out.println("</tr>");
-
-            while (rs.next()) {
-
-                out.println("<tr>");
-                out.println("<td>" + rs.getString("TOTAL") + "</td>");
-                out.println("</tr>");
-                out.println("</form>");
-                out.println("</div>");
+            
+            out.println("<h5>CONTACTOS CREADOS ESTE MES</h5>");
+            
+            while (rs.next()) {                
+                out.println("<p>" + rs.getString("TOTAL") + "</p>");               
             }
-            out.println("</table>");
+           
 
             rs.close();
             st.close();

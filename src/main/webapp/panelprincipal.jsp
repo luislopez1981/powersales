@@ -12,7 +12,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
         <script type="text/javascript"></script>
-         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script>
             $().ready(function () {
                 $.post('./CuentaOfertas',
@@ -81,17 +81,18 @@
             </div>
         </main>
         <div class="container">
-         <h4>PANEL DE CONTROL</h4>   
+            <h4>PANEL DE CONTROL</h4>  
+            <div id="tablaofertas"></div>
+            <div id="tablacontactos"></div>
+            <div id="tablastock"></div>
+            <div id="tablapedidos"></div>
         </div>
-        
-        <div id="tablaofertas"></div>
-        <div id="tablacontactos"></div>
-        <div id="tablastock"></div>
-        <div id="tablapedidos"></div>
-        
+
+
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        
+
     </body>
 </html>
