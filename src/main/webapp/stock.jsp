@@ -19,6 +19,8 @@
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script>
             $(document).ready(function () {
@@ -37,44 +39,52 @@
 
     <body>
         <header>
-            <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
-            <div class="loginHome pull-right">
-                <script>
-                    var f = new Date();
-                    document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
-                </script>
+            <div class="container">
+                <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
+                <!-- <div class="loginHome pull-right">
+                    <script>
+                        var f = new Date();
+                        document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                    </script>
+                </div> -->
+                <nav class="pull-right">
+                    <ul class="nav navbar-nav">
+                       <li role="presentation">
+                          <a class="" href="Oferta.jsp" role="button">Ofertas</a>
+                       </li>
+                       <li role="presentation">
+                          <a class="" href="contactos.jsp" role="button">Contactos</a>
+                       </li>
+                       <li role="presentation">
+                          <a class="active" href="stock.jsp" role="button">Stock</a>
+                       </li>
+                       <li role="presentation">
+                          <a class="" href="pedidos.jsp " role="button">Pedidos</a>
+                       </li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
-        <main>
-            <div class="menuHome">
-                <ul>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="Oferta.jsp" role="button">Ofertas</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="contactos.jsp" role="button">Contactos</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="pedidos.jsp" role="button">Pedidos</a>
-                    </li>
-                </ul>
+        
+        <div class="container stock">
+            <div class="content">
+                <form id="form1">
+                    <div class="form-group">
+                        <label>Matrícula:</label>
+                        <input type="text" id="matricula" />
+                    </div>
+                    
+                    <input  class="btn btn-default" type="button" id="submit2" value="Buscar" />
+                </form>
+                
+                <div class="tablacoches" id="tablacoches">
+                   
+                </div>
             </div>
-        </main>
 
-        <div class="container">
-
-
-            <h5>Búsqueda de vehículo</h5>
-            <form id="form1">
-                Matrícula:<input type="text" id="matricula" />
-                <input type="button" id="submit2" value="Buscar" />
-            </form>
-            <br>
-            <div id="tablacoches"></div>
+            
+            
 
         </div>
 

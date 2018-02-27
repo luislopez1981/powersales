@@ -12,6 +12,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myScript.js"></script>
         <script type="text/javascript"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script>
             $().ready(function () {
@@ -39,7 +40,8 @@
 
                         });
             });
-        </script><script>
+        </script>
+        <script>
             $().ready(function () {
                 $.post('./CuentaPedidos',
                         function (responseText) {
@@ -53,39 +55,48 @@
     <body>
 
         <header>
+            <div class="container">
             <a href= "./panelprincipal.jsp"><h1 class="pull-left logo">PowerSales</h1></a>
-            <div class="loginHome pull-right">
+            <!-- <div class="loginHome pull-right">
                 <script>
                     var f = new Date();
                     document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
                 </script>
+            </div> -->
+            <nav class="pull-right">
+                <ul class="nav navbar-nav">
+                   <li role="presentation">
+                      <a class="" href="Oferta.jsp" role="button">Ofertas</a>
+                   </li>
+                   <li role="presentation">
+                      <a class="" href="contactos.jsp" role="button">Contactos</a>
+                   </li>
+                   <li role="presentation">
+                      <a class="" href="stock.jsp" role="button">Stock</a>
+                   </li>
+                   <li role="presentation">
+                      <a class="" href="pedidos.jsp " role="button">Pedidos</a>
+                   </li>
+                </ul>
+            </nav>
             </div>
         </header>
 
-        <main>
-            <div class="menuHome">
-                <ul>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="Oferta.jsp" role="button">Ofertas</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="contactos.jsp" role="button">Contactos</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="stock.jsp" role="button">Stock</a>
-                    </li>
-                    <li role="presentation">
-                        <a class="btn btn-default btn-lg" href="pedidos.jsp" role="button">Pedidos</a>
-                    </li>
-                </ul>
-            </div>
-        </main>
-        <div class="container">
-            <h4>PANEL DE CONTROL</h4>  
-            <div id="tablaofertas"></div>
-            <div id="tablacontactos"></div>
-            <div id="tablastock"></div>
-            <div id="tablapedidos"></div>
+        <div class="container panel-principal">
+            
+                <div class="panel" id="tablaofertas">
+
+                </div>
+                <div class="panel" id="tablacontactos">
+
+                </div>
+                <div class="panel" id="tablastock">
+
+                </div>
+                <div class="panel" id="tablapedidos">
+
+                </div>
+            
         </div>
 
 

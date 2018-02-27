@@ -15,27 +15,30 @@
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
         <!--ACHIVOS JS BOOTSTRAP-->
         <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+
+        <link href="css/style.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
     </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <body class="login">
+        <header>
+            <h1 class="logo">PowerSales</h1>
+        </header>
+
+        <div class="content-login">
+                            
+            <div class="account-wall">
+                <form class="form-signin" action="./Login" method="POST">
+                    <input name="user" type="email" class="form-control" placeholder="Usuario" required autofocus>
+                    <input name="pass" type="password" class="form-control" placeholder="Contraseña" required>
                     <!--INSERTAMOS LA ALERTA-->
                     <%if (existeError) {%>
                     <div class="alert alert-danger" role="alert">Usuario o Contraseña erróneos</div>
                     <%}%>
                     <!--FIN DE LA ALERTA-->
-                    <div class="account-wall">
-                        <img class="profile-img" src="./assets/llaves.jpg"
-                             alt="logo login">
-                        <form class="form-signin" action="./Login" method="POST">
-                            <input name="user" type="email" class="form-control" placeholder="Usuario" required autofocus>
-                            <input name="pass" type="password" class="form-control" placeholder="Contraseña" required>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                Iniciar Sesión</button>
-                        </form>
-                    </div>
-                </div>
+                    <button class="btn btn-default" type="submit">
+                        Iniciar Sesión</button>
+                </form>
             </div>
         </div>
     </body>
